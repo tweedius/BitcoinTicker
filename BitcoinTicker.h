@@ -12,10 +12,12 @@ float get_coinbase_open(String _json_data);
 float get_coinbase_high(String _json_data);
 float get_coinbase_low(String _json_data);
 
-float sci_to_float(String _instring);
-String add_commas(float _infloat);
+float get_coinbase_epoch(String _json_data);
 
-String formatTime(int _hour, int _minute, int _second);
+float sci_to_float(String _instring);
+String add_commas(String _instring);
+
+String formatTime(int _hour, int _minute);
 
 // 
 //  Image data for bitcoin_sm

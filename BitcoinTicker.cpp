@@ -3,6 +3,13 @@
 
 //{"sequence":598805431,"bids":[["380.11","11.263",4]],"asks":[["380.12","29.91011392",2]]}
 //{"open":"365.53000000","high":"385.05000000","low":"365.53000000","volume":"9766.33459012","volume_30day":"250122.75853462"}
+//{"iso":"2016-02-11T03:19:39.488Z","epoch":1455160779.488}
+
+float get_coinbase_epoch(String _json_data){
+
+  return _json_data.substring(_json_data.indexOf("epoch") + 7, _json_data.indexOf("}")).toFloat();
+  
+}
 
 float get_coinbase_bid(String _json_data){
 
@@ -58,14 +65,45 @@ float sci_to_float(String _instring){
 
 }
 
-String add_commas(float _infloat){
-  
+
+String add_commas(String _instring){
+
+  String _outstring;
+  int insertPosition = _instring.length();
+
+  //Serial.print("_instring.length()= ");
+  //Serial.println(_instring.length());
+
+  if(_instring.length() >=4){
+    while(insertPosition > 0){
+      
+      if(insertPosition-3>0){
+        _outstring = _instring.substring(insertPosition - 3, insertPosition) + _outstring;
+        _outstring = "," + _outstring;
+      }
+      else{
+        _outstring = _instring.substring(0, insertPosition) + _outstring;
+      }
+      insertPosition = insertPosition - 3;
+
+    }
+  }
+      
+  return _outstring;
 }
 
-String formatTime(int _hour, int _minute, int _second){
 
-  String _temp_minute, _temp_second, _out_string;
+String formatTime(int _hour, int _minute){
 
+  String _temp_hour, _temp_minute, _out_string;
+
+  if(_hour>12){
+    _temp_hour = String(_hour - 12);
+  }
+  else{
+    _temp_hour = String(_hour);
+  }
+  
   if(_minute < 10){
     _temp_minute = "0";
     _temp_minute.concat(_minute);
@@ -73,20 +111,16 @@ String formatTime(int _hour, int _minute, int _second){
   else{
     _temp_minute = String(_minute);
   }
-  
-  if(_second < 10){
-    _temp_second = "0";
-    _temp_second.concat(_second);
-  }
-  else{
-    _temp_second = String(_second);
-  }
 
-  _out_string = String(_hour);
+  _out_string = String(_temp_hour);
   _out_string.concat(":");
   _out_string.concat(_temp_minute);
-  _out_string.concat(":");
-  _out_string.concat(_temp_second);
+  if(_hour < 13){
+    _out_string.concat(" AM");    
+  }
+  else{
+    _out_string.concat(" PM");    
+  }
 
   return _out_string;
     

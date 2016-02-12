@@ -35,6 +35,7 @@
 #define DAILY_TIMER_DELAY     60000
 #define DISPLAY_UPDATE_DELAY  30000
 #define TIME_UPDATE_DELAY     5000
+#define EPOCH_UPDATE_DELAY    1800000
 
 //#define UPDATE_TIMER_DELAY  5000
 //#define DAILY_TIMER_DELAY   5000
@@ -45,18 +46,18 @@ const char* ssid = "AgemoNet";
 const char* password = "olliepoop";
 
 int httpCode;
-String jsonData, priceMarketCapString, count24TransactionsString, countUnconfirmedString;
+String getData, priceMarketCapString;
 
 unsigned long updateTimer = millis() + UPDATE_TIMER_DELAY;
 unsigned long dailyTimer = millis() + DAILY_TIMER_DELAY;
 unsigned long displayTimer = millis() + DISPLAY_UPDATE_DELAY;
 unsigned long timeTimer = millis() + TIME_UPDATE_DELAY;
+unsigned long epochTimer = millis() + EPOCH_UPDATE_DELAY;
 
 HTTPClient http;
 Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC);
 
-float priceBid, priceAsk, priceOpen, priceHigh, priceLow, rateDelta, priceDelta;
-float priceMarketCap, count24Transactions, countUnconfirmed;
+float priceBid, priceAsk, priceOpen, priceHigh, priceLow, rateDelta, priceDelta, epochCoinbase, priceMarketCap, count24Transactions, countUnconfirmed;
 
 //bitmap variables
 int16_t bx, by, bw, bh, clearx, cleary;
@@ -71,7 +72,7 @@ void initDisplay();
 void updateDisplay();
 void updateMarketData();
 void updateTime();
-String addCommas(String _instr);
+void updateCoinbaseEpoch();
 
 void setup(void){
 
@@ -105,6 +106,11 @@ void setup(void){
     RTC.adjust(DateTime(__DATE__, __TIME__));
   }
 
+  //RTC.adjust(DateTime(__DATE__, __TIME__));
+  //-21600
+  //RTC.adjust(1455160779.488-21600);
+  //Date |Feb 10 2016| Time |21:09:01|
+
   tft.begin();
 
   tft.setRotation(1);
@@ -116,7 +122,7 @@ void setup(void){
   initDisplay();
   updateMarketData();
   updateDisplay();
-
+  updateCoinbaseEpoch();
 }
 
 void updateBitcoinData(){
@@ -126,7 +132,7 @@ void updateBitcoinData(){
   //http.begin("api.exchange.coinbase.com", 443, "/products/BTC-USD/book/", true, fingerprint);
   
   httpCode = http.GET();
-  jsonData = http.getString();
+  getData = http.getString();
   
   if(httpCode){
 
@@ -135,20 +141,16 @@ void updateBitcoinData(){
 
     if(httpCode == 200){
 
-      //Serial.println(jsonData);
+      //Serial.println(getData);
 
-      priceBid = get_coinbase_bid(jsonData);
-      priceAsk = get_coinbase_ask(jsonData); 
+      priceBid = get_coinbase_bid(getData);
+      priceAsk = get_coinbase_ask(getData); 
       
       Serial.print("Bid Price: ");
       Serial.print(priceBid);
       Serial.print(" | Ask Price: ");
       Serial.print(priceAsk);      
     }
-
-
-
-
     
   }
   else{
@@ -177,7 +179,7 @@ void updateDailyBitcoinData(){
   //http.begin("api.exchange.coinbase.com", 443, "/products/BTC-USD/stats/", true, fingerprint);  
 
   httpCode = http.GET();
-  jsonData = http.getString();
+  getData = http.getString();
   
   if(httpCode){
 
@@ -186,10 +188,10 @@ void updateDailyBitcoinData(){
 
     if(httpCode == 200){
 
-      //Serial.println(jsonData);
-      priceOpen = get_coinbase_open(jsonData);
-      priceHigh = get_coinbase_high(jsonData);
-      priceLow  = get_coinbase_low(jsonData);
+      //Serial.println(getData);
+      priceOpen = get_coinbase_open(getData);
+      priceHigh = get_coinbase_high(getData);
+      priceLow  = get_coinbase_low(getData);
       
       Serial.print("Open Price: ");
       Serial.print(priceOpen);
@@ -209,6 +211,37 @@ void updateDailyBitcoinData(){
 
 }
 
+void updateCoinbaseEpoch(){
+  
+  http.begin("api.exchange.coinbase.com", 443, "/time/", true, COINBASE_FINGERPRINT);
+  //http.begin("api.exchange.coinbase.com", 443, "/time/", true, fingerprint);  
+
+  httpCode = http.GET();
+  getData = http.getString();
+  
+  if(httpCode){
+
+    Serial.print("HTTP Code (CB Time): ");
+    Serial.println(httpCode);
+
+    if(httpCode == 200){
+
+      //Serial.println(getData);
+      epochCoinbase = get_coinbase_epoch(getData);
+      
+      Serial.print("Coinbase Epoch: ");
+      Serial.println(epochCoinbase-21570,0);
+      RTC.adjust(epochCoinbase-21570);
+    }
+
+  }
+  else{
+    Serial.println("HTTP Previous GET failed.");
+  }
+
+  http.end();  
+}
+
 void updateMarketData(){
 
   //START -- MarketCap --
@@ -216,7 +249,7 @@ void updateMarketData(){
   //http.begin("blockchain.info", 443, "/q/marketcap", true, blockchain_info_fingerprint);  
 
   httpCode = http.GET();
-  jsonData = http.getString();
+  getData = http.getString();
 
   if(httpCode){
 
@@ -227,24 +260,17 @@ void updateMarketData(){
     if(httpCode == 200){
            
       Serial.print("MCAP: ");
-      Serial.println(jsonData);
+      Serial.println(getData);
       
-      priceMarketCap = sci_to_float(jsonData);
+      priceMarketCap = sci_to_float(getData);
       priceMarketCapString = String(priceMarketCap);
       priceMarketCapString = priceMarketCapString.substring(0, priceMarketCapString.indexOf("."));
 
-      /*
-      //string numWithCommas = to_string(value);
-      int insertPosition = priceMarketCapString.length() - 3;
-      while (insertPosition > 0) {
-        priceMarketCapString.insert(insertPosition, ",");
-        insertPosition-=3;
-      }
-      */
+
       
       Serial.print("Market Cap: ");
-      Serial.println(priceMarketCapString);
-
+      Serial.println(add_commas(priceMarketCapString));
+      //Serial.println(priceMarketCapString);
     }
 
   }
@@ -260,7 +286,7 @@ void updateMarketData(){
   //http.begin("blockchain.info", 443, "/q/24hrtransactioncount", true, blockchain_info_fingerprint);  
 
   httpCode = http.GET();
-  jsonData = http.getString();
+  getData = http.getString();
 
   if(httpCode){
 
@@ -269,9 +295,9 @@ void updateMarketData(){
 
     if(httpCode == 200){
 
-      count24TransactionsString = jsonData;
+      count24Transactions = getData.toFloat();
       Serial.print("24Hr Transaction Count: ");
-      Serial.println(count24TransactionsString);
+      Serial.println(count24Transactions, 0);
 
     }
 
@@ -288,7 +314,7 @@ void updateMarketData(){
   //http.begin("blockchain.info", 443, "/q/unconfirmedcount", true, blockchain_info_fingerprint);  
 
   httpCode = http.GET();
-  jsonData = http.getString();
+  getData = http.getString();
 
   if(httpCode){
 
@@ -297,9 +323,9 @@ void updateMarketData(){
 
     if(httpCode == 200){
 
-      countUnconfirmedString = jsonData;
+      countUnconfirmed = getData.toFloat();
       Serial.print("Unconfirmed Transactions: ");
-      Serial.println(countUnconfirmedString);
+      Serial.println(countUnconfirmed, 0);
 
     }
 
@@ -337,8 +363,6 @@ void loop(void){
     dailyTimer = millis()+ DAILY_TIMER_DELAY;
   }
   
-  //if millis counter is approaching overflow reset the unit
-  if(millis() >= 4294900000){ESP.reset();}
 
   if(millis() >= displayTimer){
     updateDisplay();
@@ -349,7 +373,15 @@ void loop(void){
     updateTime();
     timeTimer = millis() + TIME_UPDATE_DELAY;
   }
-  
+
+  if(millis() >= epochTimer){
+    updateCoinbaseEpoch();
+    epochTimer = millis() + EPOCH_UPDATE_DELAY;
+  }
+
+  //if millis counter is approaching overflow reset the unit
+  if(millis() >= 4294900000){ESP.reset();}
+
 }
 
 void initDisplay() {
@@ -372,7 +404,7 @@ void updateTime(){
  */
  
   //See RTClib > ds1307 for examples of how to calculate ahead and behind in time
-  Serial.print(formatTime(now.hour(), now.minute(), now.second()));
+  Serial.print(formatTime(now.hour(), now.minute()));
   Serial.print("  Date: ");
   Serial.print(now.month(), DEC);
   Serial.print("-");
@@ -383,9 +415,9 @@ void updateTime(){
   tft.setTextColor(ILI9341_WHITE);
   tft.setTextSize(1);
   tft.setCursor(36, 200);
-  tft.getTextBounds("22:22:22", 36, 200, &clearx, &cleary, &clearw, &clearh);
+  tft.getTextBounds("22:22 PM", 36, 200, &clearx, &cleary, &clearw, &clearh);
   tft.fillRect(clearx, cleary, clearw, clearh, ILI9341_LIGHTBLUE);
-  tft.print(formatTime(now.hour(), now.minute(), now.second()));
+  tft.print(formatTime(now.hour(), now.minute()));
  
  //36, 200
   
@@ -438,16 +470,16 @@ void updateDisplay(){
 
   tft.setCursor(36, 155);
   tft.print("MCAP $");
-  tft.print(priceMarketCapString);
+  tft.print(add_commas(priceMarketCapString));
 
   tft.setCursor(24, 175);
   tft.print("Trns Ct: 24 Hr ");
-  tft.print(count24TransactionsString);
+  tft.print(count24Transactions, 0);
   tft.print(" Uncf ");
-  tft.print(countUnconfirmedString);
+  tft.print(countUnconfirmed, 0);
   
   tft.setCursor(36, 200);
-  tft.print(formatTime(now.hour(), now.minute(), now.second()));
+  tft.print(formatTime(now.hour(), now.minute()));
 
   /*
   //if(rateDelta > 0){tft.setTextColor(ILI9341_GREEN); tft.print("^ ");}
