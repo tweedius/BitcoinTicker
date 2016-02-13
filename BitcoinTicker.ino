@@ -85,7 +85,7 @@ void setup(void){
   
   Serial.begin(115200);
   WiFi.begin(ssid, password);
-    
+   
   // Wait for connection
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
@@ -133,7 +133,7 @@ void updateBitcoinData(){
   
   httpCode = http.GET();
   getData = http.getString();
-  
+
   if(httpCode){
 
     Serial.print("HTTP Code (Book): ");
@@ -258,9 +258,6 @@ void updateMarketData(){
 
     //httpCode 429 = blockchain.info max connections, try again
     if(httpCode == 200){
-           
-      Serial.print("MCAP: ");
-      Serial.println(getData);
       
       priceMarketCap = sci_to_float(getData);
       priceMarketCapString = String(priceMarketCap);
@@ -480,17 +477,13 @@ void updateDisplay(){
   
   tft.setCursor(36, 200);
   tft.print(formatTime(now.hour(), now.minute()));
+  tft.print("  ");
+  tft.print(now.month(), DEC);
+  tft.print("-");
+  tft.print(now.day(), DEC);
+  tft.print("-"); 
+  tft.print(now.year(), DEC);
 
-  /*
-  //if(rateDelta > 0){tft.setTextColor(ILI9341_GREEN); tft.print("^ ");}
-  //else             {tft.setTextColor(ILI9341_RED); tft.print("v ");}
-  if(rateDelta > 0){tft.setTextColor(ILI9341_GREEN); }
-  else             {tft.setTextColor(ILI9341_RED); }
-
-  tft.print(rateDelta);
-  tft.setTextColor(ILI9341_WHITE);
-  tft.println("%)");
-  */
 
 //34w 56h
 //BitcoinSymbol

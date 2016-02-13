@@ -105,16 +105,15 @@ String formatTime(int _hour, int _minute){
   }
   
   if(_minute < 10){
-    _temp_minute = "0";
-    _temp_minute.concat(_minute);
+    _temp_minute = "0" + String(_minute);
   }
   else{
     _temp_minute = String(_minute);
   }
 
-  _out_string = String(_temp_hour);
-  _out_string.concat(":");
-  _out_string.concat(_temp_minute);
+  _out_string = _temp_hour + ":" + _temp_minute;
+  //_out_string.concat(":");
+  //_out_string.concat(_temp_minute);
   if(_hour < 13){
     _out_string.concat(" AM");    
   }
