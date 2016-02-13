@@ -66,11 +66,10 @@ DateTime now;
 void updateBitcoinData();
 void updateDailyBitcoinData();
 void initDisplay();
-void updateDisplay();
 void updateMarketData();
 void updateTime();
 void updateCoinbaseEpoch();
-
+void updateDisplay();
 void setup(void){
 
   /*
@@ -118,8 +117,11 @@ void setup(void){
   //print initial bitcoin data to display
   initDisplay();
   updateMarketData();
-  updateDisplay();
   updateCoinbaseEpoch();
+  updateTime();  // this should be called after updateCoinbaseEpoch();
+  
+  //Update Last
+  updateDisplay();
 }
 
 void updateBitcoinData(){
