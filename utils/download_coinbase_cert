@@ -1,0 +1,1 @@
+echo -n | openssl s_client -connect api.exchange.coinbase.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > coinbaseapi.cert

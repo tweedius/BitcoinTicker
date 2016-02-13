@@ -1,0 +1,2 @@
+openssl x509 -in coinbaseapi.cert -sha1 -noout -fingerprint
+openssl x509 -in coinbaseapi.cert -sha1 -noout -fingerprint > coinbaseapi.fingerprint
