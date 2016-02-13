@@ -1,5 +1,7 @@
 # BitcoinTicker
 
+An ESP8266 based Bitcoin Ticker using the Arduino development environment and displayed on an ILI9341 display.
+
 Arduino IDE based ESP8266 device.  Search ESP8266 Arduino and follow install instructions on the github page.
 
 # Hardware Required
