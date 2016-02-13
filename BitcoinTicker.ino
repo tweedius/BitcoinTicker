@@ -1,6 +1,3 @@
-//CHANGELOG
-//Tinkering with the display Feb 6 2016
-
 #include <Arduino.h>
 #include <ESP8266WiFi.h>
 #include <ESP8266HTTPClient.h>

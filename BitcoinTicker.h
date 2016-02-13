@@ -1,3 +1,5 @@
+  //git please notice me senpai
+
 #ifndef _bitcoin_ticker_h
 #define _bitcoin_ticker_h
 
