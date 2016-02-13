@@ -13,6 +13,7 @@ Update Feb 13, 2016 - This project is still in the mid development stages.  Most
 
 Follow progress and breadboard at: http://imgur.com/a/nowsR
 
+
 Libraries required:
 - Modified Adafruit_ILI9341.h - will be posted to this repository
 - Modified RTClib.h - will be posted to this repository
