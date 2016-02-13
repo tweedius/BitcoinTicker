@@ -68,6 +68,8 @@ float sci_to_float(String _instring){
 
 String add_commas(String _instring){
 
+  //git please notice me senpai
+
   String _outstring;
   int insertPosition = _instring.length();
 
@@ -97,13 +99,8 @@ String formatTime(int _hour, int _minute){
 
   String _temp_hour, _temp_minute, _out_string;
 
-  //Serial.println(_hour);
-
   if(_hour>12){
     _temp_hour = String(_hour - 12);
-  }
-  else if(_hour==0){
-    _temp_hour = "12";  
   }
   else{
     _temp_hour = String(_hour);

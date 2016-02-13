@@ -22,8 +22,6 @@
 #define SDA_PIN D2
 #define SCL_PIN D3
         
-//for now the fingerprint code will be constants
-//on TODO list is automatic SSL fingerprinting
 #define COINBASE_FINGERPRINT        "35 3E 28 E0 75 8B B7 61 33 6E 23 67 38 CA 6E 74 2A 63 17 B5"
 //const char* coinbase_fingerprint = "35 3E 28 E0 75 8B B7 61 33 6E 23 67 38 CA 6E 74 2A 63 17 B5";
 
@@ -68,10 +66,10 @@ DateTime now;
 void updateBitcoinData();
 void updateDailyBitcoinData();
 void initDisplay();
+void updateDisplay();
 void updateMarketData();
 void updateTime();
 void updateCoinbaseEpoch();
-void updateDisplay();
 
 void setup(void){
 
@@ -120,11 +118,8 @@ void setup(void){
   //print initial bitcoin data to display
   initDisplay();
   updateMarketData();
-  updateCoinbaseEpoch();  //Must be before updateTime();
-  updateTime();
-
-  //Do last
   updateDisplay();
+  updateCoinbaseEpoch();
 }
 
 void updateBitcoinData(){
