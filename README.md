@@ -41,7 +41,7 @@
       <meta name="browser-stats-url" content="https://api.github.com/_private/browser/stats">
     <meta name="browser-errors-url" content="https://api.github.com/_private/browser/errors">
     <link rel="assets" href="https://assets-cdn.github.com/">
-    <link rel="web-socket" href="wss://live.github.com/_sockets/MTY3MzUwOTA6ODIzMTg5ZTFlNjA0NTZlMzEwYjE4ZGVlNDZhMzMwNDY6ZGQ4NjgzMGRmMGIzMWY1YTljYTY2MTgyNGZhMGY2ZTUyOTBkYzQ2YzJkM2YyN2EzM2JjNTNkMzUwMjM0YWYyYw==--8daff88b41d055df4523978d0b0faf669003a1ff">
+    <link rel="web-socket" href="wss://live.github.com/_sockets/MTY3MzUwOTA6ODIzMTg5ZTFlNjA0NTZlMzEwYjE4ZGVlNDZhMzMwNDY6Y2UyM2Q2Njc0YzBhZjlmYTNkMGExNWExMzg0N2E5NDYxODgwMDIwNmQ3M2Q2Y2M3YmVmZjJlY2VjYzA1YzI4MQ==--d4ce0992540901e11357946d22914409410ea6da">
     <meta name="pjax-timeout" content="1000">
     <link rel="sudo-modal" href="/sessions/sudo_modal">
 
@@ -53,7 +53,7 @@
 <meta name="google-site-verification" content="ZzhVyEFwb7w3e0-uOTltm8Jsck2F5StVihD0exw2fsA">
     <meta name="google-analytics" content="UA-3769691-2">
 
-<meta content="collector.githubapp.com" name="octolytics-host" /><meta content="github" name="octolytics-app-id" /><meta content="42BE3DC1:3F69:90ED6A9:56BECE22" name="octolytics-dimension-request_id" /><meta content="16735090" name="octolytics-actor-id" /><meta content="tweedius" name="octolytics-actor-login" /><meta content="088c84de340d7f38072a19df9f12e26e1612b9c65b3c5c007f2d3fbd1f2a011f" name="octolytics-actor-hash" />
+<meta content="collector.githubapp.com" name="octolytics-host" /><meta content="github" name="octolytics-app-id" /><meta content="42BE3DC1:11D4:9A4A7C3:56BECFD3" name="octolytics-dimension-request_id" /><meta content="16735090" name="octolytics-actor-id" /><meta content="tweedius" name="octolytics-actor-login" /><meta content="088c84de340d7f38072a19df9f12e26e1612b9c65b3c5c007f2d3fbd1f2a011f" name="octolytics-actor-hash" />
 <meta content="/&lt;user-name&gt;/&lt;repo-name&gt;/blob/show" data-pjax-transient="true" name="analytics-location" />
 
 
@@ -66,7 +66,7 @@
     <meta name="user-login" content="tweedius">
 
         <meta name="expected-hostname" content="github.com">
-      <meta name="js-proxy-site-detection-payload" content="OTM1ZTVkZmI1OTEyZmY2MWZiMTU0ZGYwZmI1OWY0NmI5M2Y1Yjk1NzU5NzJiNmRmNTFmNzhmNDNjMDJiYWYwOHx7InJlbW90ZV9hZGRyZXNzIjoiNjYuMTkwLjYxLjE5MyIsInJlcXVlc3RfaWQiOiI0MkJFM0RDMTozRjY5OjkwRUQ2QTk6NTZCRUNFMjIifQ==">
+      <meta name="js-proxy-site-detection-payload" content="OGZmMmQyNTM0YTYxNDYxNTljMjBjMmZiNGI5MmRkMzc2ZDEwYjI5YWExMGM2NmVmMWZlOTM3ZjY1ZTEwZDhlZHx7InJlbW90ZV9hZGRyZXNzIjoiNjYuMTkwLjYxLjE5MyIsInJlcXVlc3RfaWQiOiI0MkJFM0RDMToxMUQ0OjlBNEE3QzM6NTZCRUNGRDMifQ==">
 
       <link rel="mask-icon" href="https://assets-cdn.github.com/pinned-octocat.svg" color="#4078c0">
       <link rel="icon" type="image/x-icon" href="https://assets-cdn.github.com/favicon.ico">
@@ -224,7 +224,7 @@
             Settings
           </a>
 
-          <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/logout" class="logout-form" data-form-nonce="93def5a93150f544342f10507eb7515788b8be2e" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="F6yA7nhYtDMFqxBfQcE3rC2z8SMdn5TB/YS0R5S5xucBNSsul8RDSii5gLrqen85doqKMDviWj7CQZAxlzohCQ==" /></div>
+          <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/logout" class="logout-form" data-form-nonce="93def5a93150f544342f10507eb7515788b8be2e" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="akFLTzv/QVNQs++sTopKXgb6phkrFL78lQR157oouSUIIDoeeQLyBLBZZ8VFWFoKjpgMTsjlvUWgpC1r/KRk8Q==" /></div>
             <button class="dropdown-item dropdown-signout" data-ga-click="Header, sign out, icon:logout">
               Sign out
             </button>
@@ -262,7 +262,7 @@
 <ul class="pagehead-actions">
 
   <li>
-        <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/notifications/subscribe" class="js-social-container" data-autosubmit="true" data-form-nonce="93def5a93150f544342f10507eb7515788b8be2e" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="qWHWcgewu5JxQ4ct/6scDY0yEjzF024Gb5/kf7yrZslfyQJWt9Y65QQ6d0hEdpSOsFoPs7OzuHMqX7KRjuhI9Q==" /></div>      <input id="repository_id" name="repository_id" type="hidden" value="51441321" />
+        <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/notifications/subscribe" class="js-social-container" data-autosubmit="true" data-form-nonce="93def5a93150f544342f10507eb7515788b8be2e" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="cQdOjkB+jGWpo2WdsKw4A2ifvrPvnXqzq0rDT8/U6eUlHXHImuLufIE2WMG3sB9ItpxKmlF0Jlw4B62OsxdWhw==" /></div>      <input id="repository_id" name="repository_id" type="hidden" value="51441321" />
 
         <div class="select-menu js-menu-container js-select-menu">
           <a href="/tweedius/BitcoinTicker/subscription"
@@ -337,7 +337,7 @@
     
   <div class="js-toggler-container js-social-container starring-container ">
 
-    <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/tweedius/BitcoinTicker/unstar" class="js-toggler-form starred js-unstar-button" data-form-nonce="93def5a93150f544342f10507eb7515788b8be2e" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="eeM+DSsB42pwM8X/yKSwhutmPs+xlkV+/VVXlMc6uoH71kUA5ChiLU/A+/f/CdPCO1MdiJxtef67ikzY2kNGkg==" /></div>
+    <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/tweedius/BitcoinTicker/unstar" class="js-toggler-form starred js-unstar-button" data-form-nonce="93def5a93150f544342f10507eb7515788b8be2e" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="kNyWjIxR3ts0aulPxZ7nxOeQ5JCZo+ItnzIbrHHshzVrx7rfmF7hZSpWSrz/1UqsJ+KokIJql5EfYWbgYdSUHA==" /></div>
       <button
         class="btn btn-sm btn-with-count js-toggler-target"
         aria-label="Unstar this repository" title="Unstar tweedius/BitcoinTicker"
@@ -349,7 +349,7 @@
           0
         </a>
 </form>
-    <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/tweedius/BitcoinTicker/star" class="js-toggler-form unstarred js-star-button" data-form-nonce="93def5a93150f544342f10507eb7515788b8be2e" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="EBmD0vg+Zwvz2U/dvNVeB1sG6sWW6Is8vi/EaTMBAH1NmlkxhD+9b8tWIcpHdHKBUFtZFny8DYBMnCsqU0/EsA==" /></div>
+    <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/tweedius/BitcoinTicker/star" class="js-toggler-form unstarred js-star-button" data-form-nonce="93def5a93150f544342f10507eb7515788b8be2e" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="taTRVJAkueSPL0vn0OkTqCH+tdIJVW/hCAW+KWexkWM0n7CWI6e0eM01YvBdFaMfXhXL2ZJrisfTqEbKABZB4g==" /></div>
       <button
         class="btn btn-sm btn-with-count js-toggler-target"
         aria-label="Star this repository" title="Star tweedius/BitcoinTicker"
@@ -365,7 +365,7 @@
   </li>
 
   <li>
-          <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/tweedius/BitcoinTicker/fork" class="btn-with-count" data-form-nonce="93def5a93150f544342f10507eb7515788b8be2e" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="P4Fo9R1DUpNCl2aem35jOFt6nNqcyVqyh6eZsiabZ97my49+cbCfjIAvSmWaEYFtf5/f17KWj//H8Ulxo5z7RQ==" /></div>
+          <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/tweedius/BitcoinTicker/fork" class="btn-with-count" data-form-nonce="93def5a93150f544342f10507eb7515788b8be2e" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="wfj+yMyx0X45FhNW/lvuuwH0T7J6niRSuG51vkw31fWpAXKtzVdRH+i4TREAIlUNcUWn2YHR95ZWCiha2SY3jg==" /></div>
             <button
                 type="submit"
                 class="btn btn-sm btn-with-count"
@@ -501,7 +501,7 @@
             </a>
         </div>
 
-          <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/tweedius/BitcoinTicker/branches" class="js-create-branch select-menu-item select-menu-new-item-form js-navigation-item js-new-item-form" data-form-nonce="93def5a93150f544342f10507eb7515788b8be2e" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="VxUkO1t4aYEz8cAck59HQNkZFVrNnV15dChS8QEdoiGhAOGRqM4yCkF02oPfOBH5cWihS6KjwaUuCZwQ1owDOw==" /></div>
+          <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/tweedius/BitcoinTicker/branches" class="js-create-branch select-menu-item select-menu-new-item-form js-navigation-item js-new-item-form" data-form-nonce="93def5a93150f544342f10507eb7515788b8be2e" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="1hPtdQ1LxVuOzafsAn20f5UBczlQGWCllVTWRz7BPY3JMKBS4iXuG1i1gIG6QozrT6OgseICadtXZ6m1uYkWMQ==" /></div>
           <svg aria-hidden="true" class="octicon octicon-git-branch select-menu-item-icon" height="16" role="img" version="1.1" viewBox="0 0 10 16" width="10"><path d="M10 5c0-1.11-0.89-2-2-2s-2 0.89-2 2c0 0.73 0.41 1.38 1 1.72v0.3c-0.02 0.52-0.23 0.98-0.63 1.38s-0.86 0.61-1.38 0.63c-0.83 0.02-1.48 0.16-2 0.45V4.72c0.59-0.34 1-0.98 1-1.72 0-1.11-0.89-2-2-2S0 1.89 0 3c0 0.73 0.41 1.38 1 1.72v6.56C0.41 11.63 0 12.27 0 13c0 1.11 0.89 2 2 2s2-0.89 2-2c0-0.53-0.2-1-0.53-1.36 0.09-0.06 0.48-0.41 0.59-0.47 0.25-0.11 0.56-0.17 0.94-0.17 1.05-0.05 1.95-0.45 2.75-1.25s1.2-1.98 1.25-3.02h-0.02c0.61-0.36 1.02-1 1.02-1.73zM2 1.8c0.66 0 1.2 0.55 1.2 1.2s-0.55 1.2-1.2 1.2-1.2-0.55-1.2-1.2 0.55-1.2 1.2-1.2z m0 12.41c-0.66 0-1.2-0.55-1.2-1.2s0.55-1.2 1.2-1.2 1.2 0.55 1.2 1.2-0.55 1.2-1.2 1.2z m6-8c-0.66 0-1.2-0.55-1.2-1.2s0.55-1.2 1.2-1.2 1.2 0.55 1.2 1.2-0.55 1.2-1.2 1.2z"></path></svg>
             <div class="select-menu-item-text">
               <span class="select-menu-item-heading">Create branch: <span class="js-new-item-name"></span></span>
@@ -590,12 +590,12 @@
             <svg aria-hidden="true" class="octicon octicon-device-desktop" height="16" role="img" version="1.1" viewBox="0 0 16 16" width="16"><path d="M15 2H1c-0.55 0-1 0.45-1 1v9c0 0.55 0.45 1 1 1h5.34c-0.25 0.61-0.86 1.39-2.34 2h8c-1.48-0.61-2.09-1.39-2.34-2h5.34c0.55 0 1-0.45 1-1V3c0-0.55-0.45-1-1-1z m0 9H1V3h14v8z"></path></svg>
         </a>
 
-        <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/tweedius/BitcoinTicker/edit/master/README.md" class="inline-form js-update-url-with-hash" data-form-nonce="93def5a93150f544342f10507eb7515788b8be2e" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="6sXAUpECg3kWr2g17KHvlY4khg+FK+F3psRQC12k+2ULtPmJgkD0do7Tt7hyqiQm/6UtOeDeysNTOQHpSMgJHQ==" /></div>
+        <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/tweedius/BitcoinTicker/edit/master/README.md" class="inline-form js-update-url-with-hash" data-form-nonce="93def5a93150f544342f10507eb7515788b8be2e" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="Ll6pEoaclK1A5XP6K4yopDnCdEAK/m3VGkjw82bHDr20uHfRsUCVmgMt4byGswuv7nFspG2SjZWM+R8H1VCMvQ==" /></div>
           <button class="btn-octicon tooltipped tooltipped-nw" type="submit"
             aria-label="Edit this file" data-hotkey="e" data-disable-with>
             <svg aria-hidden="true" class="octicon octicon-pencil" height="16" role="img" version="1.1" viewBox="0 0 14 16" width="14"><path d="M0 12v3h3l8-8-3-3L0 12z m3 2H1V12h1v1h1v1z m10.3-9.3l-1.3 1.3-3-3 1.3-1.3c0.39-0.39 1.02-0.39 1.41 0l1.59 1.59c0.39 0.39 0.39 1.02 0 1.41z"></path></svg>
           </button>
-</form>        <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/tweedius/BitcoinTicker/delete/master/README.md" class="inline-form" data-form-nonce="93def5a93150f544342f10507eb7515788b8be2e" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="vtNlrTgh9Hoe75YTAWvD/lDM23mFa1XfNa2CVHT+PxiQw7n4tcXYRs+Mtpo6UGrdCjKsHnBF6FMLUa2iEAYhaw==" /></div>
+</form>        <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/tweedius/BitcoinTicker/delete/master/README.md" class="inline-form" data-form-nonce="93def5a93150f544342f10507eb7515788b8be2e" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="PqwLPjSU3gHsbUXeu+A0zQs/1MNMDBbQXEcxZERL2NzmBp1Lt4XnUlK8M2d0ShGIivfz1MZkridQacKzIwQOoQ==" /></div>
           <button class="btn-octicon btn-octicon-danger tooltipped tooltipped-nw" type="submit"
             aria-label="Delete this file" data-disable-with>
             <svg aria-hidden="true" class="octicon octicon-trashcan" height="16" role="img" version="1.1" viewBox="0 0 12 16" width="12"><path d="M10 2H8c0-0.55-0.45-1-1-1H4c-0.55 0-1 0.45-1 1H1c-0.55 0-1 0.45-1 1v1c0 0.55 0.45 1 1 1v9c0 0.55 0.45 1 1 1h7c0.55 0 1-0.45 1-1V5c0.55 0 1-0.45 1-1v-1c0-0.55-0.45-1-1-1z m-1 12H2V5h1v8h1V5h1v8h1V5h1v8h1V5h1v9z m1-10H1v-1h9v1z"></path></svg>
@@ -674,7 +674,7 @@
       <svg aria-hidden="true" class="octicon octicon-mark-github" height="24" role="img" title="GitHub " version="1.1" viewBox="0 0 16 16" width="24"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59 0.4 0.07 0.55-0.17 0.55-0.38 0-0.19-0.01-0.82-0.01-1.49-2.01 0.37-2.53-0.49-2.69-0.94-0.09-0.23-0.48-0.94-0.82-1.13-0.28-0.15-0.68-0.52-0.01-0.53 0.63-0.01 1.08 0.58 1.23 0.82 0.72 1.21 1.87 0.87 2.33 0.66 0.07-0.52 0.28-0.87 0.51-1.07-1.78-0.2-3.64-0.89-3.64-3.95 0-0.87 0.31-1.59 0.82-2.15-0.08-0.2-0.36-1.02 0.08-2.12 0 0 0.67-0.21 2.2 0.82 0.64-0.18 1.32-0.27 2-0.27 0.68 0 1.36 0.09 2 0.27 1.53-1.04 2.2-0.82 2.2-0.82 0.44 1.1 0.16 1.92 0.08 2.12 0.51 0.56 0.82 1.27 0.82 2.15 0 3.07-1.87 3.75-3.65 3.95 0.29 0.25 0.54 0.73 0.54 1.48 0 1.07-0.01 1.93-0.01 2.2 0 0.21 0.15 0.46 0.55 0.38C13.71 14.53 16 11.53 16 8 16 3.58 12.42 0 8 0z"></path></svg>
 </a>
     <ul class="site-footer-links">
-      <li>&copy; 2016 <span title="0.06477s from github-fe153-cp1-prd.iad.github.net">GitHub</span>, Inc.</li>
+      <li>&copy; 2016 <span title="0.05862s from github-fe147-cp1-prd.iad.github.net">GitHub</span>, Inc.</li>
         <li><a href="https://github.com/site/terms" data-ga-click="Footer, go to terms, text:terms">Terms</a></li>
         <li><a href="https://github.com/site/privacy" data-ga-click="Footer, go to privacy, text:privacy">Privacy</a></li>
         <li><a href="https://github.com/security" data-ga-click="Footer, go to security, text:security">Security</a></li>
