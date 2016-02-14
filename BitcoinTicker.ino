@@ -70,6 +70,8 @@ void updateMarketData();
 void updateTime();
 void updateCoinbaseEpoch();
 void updateDisplay();
+
+//Initialize Unit
 void setup(void){
 
   /*
@@ -414,7 +416,8 @@ void updateTime(){
   tft.getTextBounds("22:22 PM", 36, 200, &clearx, &cleary, &clearw, &clearh);
   tft.fillRect(clearx, cleary, clearw, clearh, ILI9341_LIGHTBLUE);
   tft.print(formatTime(now.hour(), now.minute()));
- 
+
+ Serial.println(WiFi.RSSI());
  //36, 200
   
 }
