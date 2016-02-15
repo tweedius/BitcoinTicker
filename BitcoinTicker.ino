@@ -3,8 +3,8 @@
 #include <ESP8266HTTPClient.h>
 
 #include <Adafruit_ILI9341.h>
-#include <Fonts/FreeSansBold9pt7b.h>
-#include <Fonts/FreeSansBold18pt7b.h>
+#include <Fonts/FreeSansBold9pt7b.h>  //Within the ADAFRUIT GFX Library
+#include <Fonts/FreeSansBold18pt7b.h> //Within the ADAFRUIT GFX Library
 
 #include "RTClib.h"
 
@@ -12,7 +12,7 @@
 #include <Wire.h>
 
 
-//#include <EEPROM.h>
+//#include <EEPROM.h>  <--not currently in use
 
 #include "BitcoinTicker.h"
 

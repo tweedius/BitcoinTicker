@@ -14,8 +14,8 @@ Update Feb 13, 2016 - This project is still in the mid development stages.  Most
 Follow progress and breadboard at: http://imgur.com/a/nowsR
 
 Libraries required:
-- Modified Adafruit_ILI9341.h - will be posted to this repository
-- Modified RTClib.h - will be posted to this repository
+- Modified Adafruit_ILI9341.h - My fork, works with this tweedius/BitcoinTicker - https://github.com/tweedius/Adafruit_ILI9341 - currently investigating newest version from Adafruit to check for compatibility
+- Modified RTClib.h - https://github.com/tweedius/RTClib
 
 Donate Address: 1Cr22EQfhbKBGLe2Z6yfaTFjpSQUA2b4yZ
 Not done yet, but why not?  
