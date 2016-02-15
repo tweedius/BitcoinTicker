@@ -335,13 +335,6 @@ void updateMarketData(){
   http.end();
 //END -- Unconfirmed Count --
 
-/*
-  float priceMarketCap, count24Transactions, countUnconfirmed;
-  String priceMarketCapString, count24TransactionsString, countUnconfirmedString;
-*/
-
-  //count24Transactions = float(count24TransactionsString);
-  //countUnconfirmedString = float(countUnconfirmed);
 
 }
 
@@ -417,7 +410,6 @@ void updateTime(){
   tft.fillRect(clearx, cleary, clearw, clearh, ILI9341_LIGHTBLUE);
   tft.print(formatTime(now.hour(), now.minute()));
 
- Serial.println(WiFi.RSSI());
  //36, 200
   
 }
