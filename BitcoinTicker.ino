@@ -39,8 +39,8 @@
 
 //#define DISPLAY_UPDATE_DELAY  1000
 
-const char* ssid = "AgemoNet";
-const char* password = "olliepoop";
+const char* ssid = "SSID";
+const char* password = "PASSWORD";
 
 int httpCode;
 String getData, priceMarketCapString;
