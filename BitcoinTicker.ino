@@ -11,10 +11,12 @@
 #include <SPI.h>
 #include <Wire.h>
 
-
 //#include <EEPROM.h>  <--not currently in use
 
+//BitcoinTicker includes
 #include "BitcoinTicker.h"
+#include "BlockchainInfo.h"
+#include "CoinbaseAPI.h"
 
 #define TFT_DC D4
 #define TFT_CS D8
@@ -23,10 +25,10 @@
 #define SCL_PIN D3
         
 #define COINBASE_FINGERPRINT        "35 3E 28 E0 75 8B B7 61 33 6E 23 67 38 CA 6E 74 2A 63 17 B5"
-//const char* coinbase_fingerprint = "35 3E 28 E0 75 8B B7 61 33 6E 23 67 38 CA 6E 74 2A 63 17 B5";
+const char* coinbase_fingerprint[] PROGMEM = "35 3E 28 E0 75 8B B7 61 33 6E 23 67 38 CA 6E 74 2A 63 17 B5";
 
 #define BLOCKCHAIN_INFO_FINGERPRINT "94 10 81 EB E4 62 B5 BD 7B 03 DE 79 C7 A6 4D 91 30 13 7B E0"
-//const char* blockchain_info_fingerprint = "94 10 81 EB E4 62 B5 BD 7B 03 DE 79 C7 A6 4D 91 30 13 7B E0";
+const char* blockchain_info_fingerprint[] PROGMEM = "94 10 81 EB E4 62 B5 BD 7B 03 DE 79 C7 A6 4D 91 30 13 7B E0";
 
 #define UPDATE_TIMER_DELAY    60000
 #define DAILY_TIMER_DELAY     60000
@@ -39,8 +41,8 @@
 
 //#define DISPLAY_UPDATE_DELAY  1000
 
-const char* ssid = "SSID";
-const char* password = "PASSWORD";
+const char* ssid = "AgemoNet";
+const char* password = "olliepoop";
 
 int httpCode;
 String getData, priceMarketCapString;
