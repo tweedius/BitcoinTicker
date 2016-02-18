@@ -15,7 +15,7 @@
 
 //BitcoinTicker includes
 #include "BitcoinTicker.h"
-#include "BlockchainInfo.h"
+#include "BlockchainInfoAPI.h"
 #include "CoinbaseAPI.h"
 
 #define TFT_DC D4
@@ -24,11 +24,11 @@
 #define SDA_PIN D2
 #define SCL_PIN D3
         
-#define COINBASE_FINGERPRINT        "35 3E 28 E0 75 8B B7 61 33 6E 23 67 38 CA 6E 74 2A 63 17 B5"
-const char* coinbase_fingerprint[] PROGMEM = "35 3E 28 E0 75 8B B7 61 33 6E 23 67 38 CA 6E 74 2A 63 17 B5";
+//#define COINBASE_FINGERPRINT        "35 3E 28 E0 75 8B B7 61 33 6E 23 67 38 CA 6E 74 2A 63 17 B5"
+const char coinbase_fingerprint[] PROGMEM = "35 3E 28 E0 75 8B B7 61 33 6E 23 67 38 CA 6E 74 2A 63 17 B5";
 
-#define BLOCKCHAIN_INFO_FINGERPRINT "94 10 81 EB E4 62 B5 BD 7B 03 DE 79 C7 A6 4D 91 30 13 7B E0"
-const char* blockchain_info_fingerprint[] PROGMEM = "94 10 81 EB E4 62 B5 BD 7B 03 DE 79 C7 A6 4D 91 30 13 7B E0";
+//#define BLOCKCHAIN_INFO_FINGERPRINT "94 10 81 EB E4 62 B5 BD 7B 03 DE 79 C7 A6 4D 91 30 13 7B E0"
+const char blockchain_info_fingerprint[] PROGMEM = "94 10 81 EB E4 62 B5 BD 7B 03 DE 79 C7 A6 4D 91 30 13 7B E0";
 
 #define UPDATE_TIMER_DELAY    60000
 #define DAILY_TIMER_DELAY     60000
@@ -41,8 +41,8 @@ const char* blockchain_info_fingerprint[] PROGMEM = "94 10 81 EB E4 62 B5 BD 7B 
 
 //#define DISPLAY_UPDATE_DELAY  1000
 
-const char* ssid = "AgemoNet";
-const char* password = "olliepoop";
+const char* ssid = "SSID";
+const char* password = "PASSWORD";
 
 int httpCode;
 String getData, priceMarketCapString;
@@ -96,6 +96,8 @@ void setup(void){
   Serial.println(ssid);
   Serial.print("IP address: ");
   Serial.println(WiFi.localIP());
+  Serial.print("macAddress: ");
+  Serial.println(WiFi.macAddress());
 
   Wire.begin(SDA_PIN, SCL_PIN);
   RTC.begin();
@@ -130,8 +132,7 @@ void setup(void){
 
 void updateBitcoinData(){
 
-
-  http.begin("api.exchange.coinbase.com", 443, "/products/BTC-USD/book/", true, COINBASE_FINGERPRINT);
+  http.begin("api.exchange.coinbase.com", 443, "/products/BTC-USD/book/", true, coinbase_fingerprint);
   //http.begin("api.exchange.coinbase.com", 443, "/products/BTC-USD/book/", true, fingerprint);
   
   httpCode = http.GET();
@@ -178,7 +179,7 @@ void updateBitcoinData(){
 
 void updateDailyBitcoinData(){
   
-  http.begin("api.exchange.coinbase.com", 443, "/products/BTC-USD/stats/", true, COINBASE_FINGERPRINT);
+  http.begin("api.exchange.coinbase.com", 443, "/products/BTC-USD/stats/", true, coinbase_fingerprint);
   //http.begin("api.exchange.coinbase.com", 443, "/products/BTC-USD/stats/", true, fingerprint);  
 
   httpCode = http.GET();
@@ -216,7 +217,7 @@ void updateDailyBitcoinData(){
 
 void updateCoinbaseEpoch(){
   
-  http.begin("api.exchange.coinbase.com", 443, "/time/", true, COINBASE_FINGERPRINT);
+  http.begin("api.exchange.coinbase.com", 443, "/time/", true, coinbase_fingerprint);
   //http.begin("api.exchange.coinbase.com", 443, "/time/", true, fingerprint);  
 
   httpCode = http.GET();
@@ -248,7 +249,7 @@ void updateCoinbaseEpoch(){
 void updateMarketData(){
 
   //START -- MarketCap --
-  http.begin("blockchain.info", 443, "/q/marketcap", true, BLOCKCHAIN_INFO_FINGERPRINT);
+  http.begin("blockchain.info", 443, "/q/marketcap", true, blockchain_info_fingerprint);
   //http.begin("blockchain.info", 443, "/q/marketcap", true, blockchain_info_fingerprint);  
 
   httpCode = http.GET();
@@ -282,7 +283,7 @@ void updateMarketData(){
 //END -- MarketCap --
 
 //START -- Transaction Count --
-  http.begin("blockchain.info", 443, "/q/24hrtransactioncount", true, BLOCKCHAIN_INFO_FINGERPRINT);
+  http.begin("blockchain.info", 443, "/q/24hrtransactioncount", true, blockchain_info_fingerprint);
   //http.begin("blockchain.info", 443, "/q/24hrtransactioncount", true, blockchain_info_fingerprint);  
 
   httpCode = http.GET();
@@ -310,7 +311,7 @@ void updateMarketData(){
 //END -- Transaction Count --
 
 //START -- Unconfirmed Count --
-  http.begin("blockchain.info", 443, "/q/unconfirmedcount", true, BLOCKCHAIN_INFO_FINGERPRINT);
+  http.begin("blockchain.info", 443, "/q/unconfirmedcount", true, blockchain_info_fingerprint);
   //http.begin("blockchain.info", 443, "/q/unconfirmedcount", true, blockchain_info_fingerprint);  
 
   httpCode = http.GET();
