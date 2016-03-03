@@ -18,6 +18,8 @@
 #include "BlockchainInfoAPI.h"
 #include "CoinbaseAPI.h"
 
+#define BUTTON_PIN D1
+
 #define TFT_DC D4
 #define TFT_CS D8
 
@@ -41,8 +43,11 @@ const char blockchain_info_fingerprint[] PROGMEM = "94 10 81 EB E4 62 B5 BD 7B 0
 
 //#define DISPLAY_UPDATE_DELAY  1000
 
-const char* ssid = "SSID";
-const char* password = "PASSWORD";
+char *deviceSSID = "BitcoinTicker";
+char *devicePassword = "a123fasdwerhjj";
+
+const char* ssid = "AgemoNet";
+const char* password = "olliepoop";
 
 int httpCode;
 String getData, priceMarketCapString;
@@ -72,6 +77,7 @@ void updateMarketData();
 void updateTime();
 void updateCoinbaseEpoch();
 void updateDisplay();
+void forceUpdate();
 
 //Initialize Unit
 void setup(void){
@@ -82,8 +88,14 @@ void setup(void){
   green_value = EEPROM.read(1);
   blue_value = EEPROM.read(2);
   */
+
+  pinMode(BUTTON_PIN, INPUT);
   
   Serial.begin(115200);
+
+  WiFi.softAP(deviceSSID, devicePassword);
+  delay(500);
+  
   WiFi.begin(ssid, password);
    
   // Wait for connection
@@ -342,6 +354,14 @@ void updateMarketData(){
 }
 
 void loop(void){
+
+  WiFi.mode(WIFI_STA);
+
+
+  if(digitalRead(BUTTON_PIN) == LOW){
+    forceUpdate();
+  }
+
   
   // unsigned long 4,294,967,295
   // 4,294,900,000 reset
@@ -358,11 +378,6 @@ void loop(void){
   }
   
 
-  if(millis() >= displayTimer){
-    updateDisplay();
-    displayTimer = millis() + DISPLAY_UPDATE_DELAY;
-  }
-
   if(millis() >= timeTimer){
     updateTime();
     timeTimer = millis() + TIME_UPDATE_DELAY;
@@ -373,9 +388,22 @@ void loop(void){
     epochTimer = millis() + EPOCH_UPDATE_DELAY;
   }
 
+  if(millis() >= displayTimer){
+    updateDisplay();
+    displayTimer = millis() + DISPLAY_UPDATE_DELAY;
+  }
+
   //if millis counter is approaching overflow reset the unit
   if(millis() >= 4294900000){ESP.reset();}
 
+}
+
+void forceUpdate(){
+  updateTimer = millis();
+  dailyTimer = millis();
+  displayTimer = millis();
+  timeTimer = millis();
+  epochTimer = millis();
 }
 
 void initDisplay() {
